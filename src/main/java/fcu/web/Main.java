@@ -1,9 +1,13 @@
 package fcu.web;
 
 
+import org.apache.commons.io.FileUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args)
@@ -72,6 +76,35 @@ public class Main {
         String xmasDay="2025-12-25 00:00:00";
         DateTime xmas=format7.parseDateTime(xmasDay);
         System.out.println(xmas);
+
+
+        DateTime day30=now.plusDays(30);
+        String strDay30=format.print(day30);
+        System.out.println(strDay30);
+        System.out.println(day30);
+
+
+        DateTime day10=now.plusDays(10);
+        String strDay10=format.print(day10);
+        System.out.println(strDay10);
+        System.out.println(day10);
+
+
+        day30=cny.plusDays(30);
+        String strDay32=format.print(day30);
+        System.out.println(strDay32);
+
+        try{
+
+            FileUtils.copyFile(new File("pom.xml"),new File("pom.backup"));
+        }
+        catch(IOException ioe)
+        {
+
+            throw new RuntimeException(ioe);
+        }
+
+
 
 
 
